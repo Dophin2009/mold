@@ -109,7 +109,7 @@ function loadEditor(originalURL: string, newURL: string) {
 
 function loadImages(originalURL: string, newURL: string) {
     // Save the image URLs into the storage.
-    storage.saveData(originalURL, newURL);
+    storage.saveImageData(originalURL, newURL);
 
     // Set the image element sources.
     const imageOriginal = util.editorImageOriginal();
@@ -121,12 +121,16 @@ function loadImages(originalURL: string, newURL: string) {
     Image.load(newURL).then((image) => {
         im.pushVersion(image);
         unhideEditorOptions();
+
+        // Update the download URL.
+        const downloadAnchor = util.editorDownloadAnchor();
+        downloadAnchor.href = im.currentImage().toDataURL();
     });
 }
 
 function discardImages() {
     // Clear the image data from the storage.
-    storage.clearData();
+    storage.clearImageData();
 
     // Hide the editor and unhide the upload form.
     resetEditor();
@@ -141,8 +145,12 @@ function reloadImage() {
     const imageNew = util.editorImageNew();
     imageNew.src = url;
 
+    // Update download URL.
+    const downloadAnchor = util.editorDownloadAnchor();
+    downloadAnchor.href = url;
+
     // Save the image URLs.
-    storage.saveNewURL(url);
+    storage.saveNewImage(url);
 }
 
 // Initialization function.
@@ -153,7 +161,7 @@ function init() {
     // First check to see if the local storage has images saved.
     // If there is, then just load the editor right away.
     // If not, we have to show the upload button.
-    const savedData = storage.loadData();
+    const savedData = storage.loadImageData();
     if (savedData) {
         const [originalURL, newURL] = savedData;
         loadEditor(originalURL, newURL);

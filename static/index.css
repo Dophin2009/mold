@@ -1,3 +1,6 @@
+@import "upload.css";
+@import "editor.css";
+
 .wrapper {
     font-family: "Fira Sans";
 
@@ -5,97 +8,9 @@
     justify-content: center;
 }
 
-.button {
-    background-color: #444;
-    color: white;
-    padding: 0.5rem;
-    border-radius: 0.3rem;
-    cursor: pointer;
-    margin: 0 auto;
-}
-
-button.button, input.button {
-    border: 0;
-    font-family: inherit;
-    box-shadow: none;
-}
-
 .title {
     text-align: center;
     margin-bottom: 30px;
-}
-
-.upload-box {
-    text-align: center;
-}
-
-.upload-form {
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
-}
-
-.upload-form-progress-box {
-    display: none;
-}
-
-.editor-box {
-    display: none;
-
-    align: center;
-    text-align: center;
-
-    margin-top: 20px;
-}
-
-.editor-image-box {
-    text-align: center;
-
-    margin-top: 20px;
-}
-
-.editor-image > * {
-    margin: 5px 0;
-}
-
-.editor-image {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 30%;
-}
-
-.editor-controls-box {
-    border-radius: 2px;
-    background-color: #eee;
-    margin: 0 20%;
-    margin-top: 20px;
-    padding: 5px 0;
-}
-
-.editor-controls-undo {
-    color: #888;
-}
-.editor-controls-undo:hover {
-    color: #333;
-}
-
-.editor-options-box {
-    text-align: left;
-
-    margin: 30px 20%;
-}
-
-.editor-options-box > * {
-    margin-bottom: 15px;
-}
-
-.editor-blur-input {
-    margin-left: 10px;
-    width: 30px;
 }
 
 input[type="number"] {
@@ -107,6 +22,25 @@ input[type="number"] {
     font-size: 0.9rem;
 }
 
-.clickable:hover {
+.button {
+    background-color: #444;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
     cursor: pointer;
 }
+
+button.button, input.button {
+    border: 0;
+    font-family: inherit;
+    box-shadow: none;
+}
+
+.icon-button {
+    color: #888;
+}
+.icon-button:hover {
+    color: #333;
+    cursor: pointer;
+}
+

@@ -41,6 +41,10 @@ export function editorUndoButton(): HTMLButtonElement {
     return getElementById("editor-controls-undo");
 }
 
+export function editorDownloadAnchor(): HTMLAnchorElement {
+    return getElementById("editor-download-anchor");
+}
+
 export function editorOptions(): HTMLDivElement {
     return getElementById("editor-options-box");
 }
