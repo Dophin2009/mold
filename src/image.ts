@@ -1,6 +1,11 @@
 import { Image } from "image-js";
 
+let original: string;
 let versions: Image[] = [];
+
+export function setOriginal(url: string): void {
+    original = url;
+}
 
 export function getVersions(): Image[] {
     return versions;
@@ -18,7 +23,14 @@ export function undoLast(): void {
     versions.pop();
 }
 
+export async function reset(): Promise<void> {
+    return Image.load(original).then((image) => {
+        versions = [image];
+    });
+}
+
 export function clear(): void {
+    original = "";
     versions = [];
 }
 

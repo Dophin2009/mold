@@ -119,6 +119,7 @@ function loadImages(originalURL: string, newURL: string) {
 
     // Load the image data into image-js for transformation.
     Image.load(newURL).then((image) => {
+        im.setOriginal(originalURL);
         im.pushVersion(image);
         unhideEditorOptions();
 
@@ -185,6 +186,13 @@ function initEditor() {
     undoButton.addEventListener("click", (_event: MouseEvent) => {
         im.undoLast();
         reloadImage();
+    });
+
+    const resetButton = util.editorResetButton();
+    resetButton.addEventListener("click", (_event: MouseEvent) => {
+        im.reset().then(() => {
+            reloadImage();
+        });
     });
 
     const greyscaleButton = util.editorGreyscaleButton();

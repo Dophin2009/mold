@@ -32,6 +32,11 @@
     padding: 5px 0;
 }
 
+.editor-controls-box > * {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
 .editor-options-box {
     text-align: left;
 
