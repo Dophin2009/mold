@@ -40,7 +40,7 @@ module.exports = (_, argv) => {
                 ],
             }),
         ],
-        devtool: production ? null : "eval-source-map",
+        devtool: production ? false : "eval-source-map",
         devServer: { contentBase: DIST, compress: production, port: 8000 },
     };
 };
