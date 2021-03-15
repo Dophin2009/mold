@@ -12,6 +12,7 @@
         "start": "webpack serve --mode development"
     },
     "devDependencies": {
+        "@fontsource/fira-sans": "^4.2.2",
         "@swc/core": "^1.2.50",
         "@typescript-eslint/eslint-plugin": "^4.17.0",
         "copy-webpack-plugin": "^8.0.0",
@@ -21,5 +22,8 @@
         "webpack": "^5.25.1",
         "webpack-cli": "^4.5.0",
         "webpack-dev-server": "^3.11.2"
+    },
+    "dependencies": {
+        "image-js": "^0.31.4"
     }
 }

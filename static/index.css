@@ -1,0 +1,55 @@
+.wrapper {
+    font-family: "Fira Sans";
+
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.upload-box {
+    text-align: center;
+}
+
+.upload-form {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.upload-form-label {
+    background-color: #444;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.upload-form-progress-box {
+    display: none;
+}
+
+.editor-box {
+    display: none;
+    align: center;
+
+    margin-top: 20px;
+}
+
+.editor-image-box {
+    text-align: center;
+}
+
+.editor-image {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}

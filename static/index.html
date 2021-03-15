@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Mold</title>
+        <link rel="stylesheet" href="/index.css" />
+        <link rel="stylesheet" href="/font/index.css" />
+    </head>
+    <body>
+        <div id="wrapper" class="wrapper">
+            <div class="title">
+                <h1>Mold</h1>
+            </div>
+            <div id="upload-box" class="upload-box">
+                <div id="upload-form-box" class="upload-form-box">
+                    <input type="file" accept="image/*" id="upload-form" class="upload-form" />
+                    <label for="upload-form" class="upload-form-label">Upload an image!</label>
+                </div>
+                <div id="upload-form-progress-box" class="upload-form-progress-box">
+                    <progress id="upload-form-progress" max="100" value="0"></progress>
+                </div>
+            </div>
+            <div id="editor-box" class="editor-box">
+                <div class="editor-image-box">
+                    <img id="editor-image-original" class="editor-image" src="" />
+                    <img id="editor-image-new" class="editor-image" src="" />
+                </div>
+            </div>
+        </div>
+        <script src="/index.js"></script>
+    </body>
+</html>
