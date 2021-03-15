@@ -1,0 +1,25 @@
+{
+    "name": "mold",
+    "version": "0.1.0",
+    "description": "An image modification website.",
+    "author": "Eric Zhao <21zhaoe@protonmail.com>",
+    "license": "GPL-3.0",
+    "main": "index.js",
+    "scripts": {
+        "lint": "eslint .",
+        "build": "webpack --mode production",
+        "build:dev": "webpack --mode development",
+        "start": "webpack serve --mode development"
+    },
+    "devDependencies": {
+        "@swc/core": "^1.2.50",
+        "@typescript-eslint/eslint-plugin": "^4.17.0",
+        "copy-webpack-plugin": "^8.0.0",
+        "eslint": "^7.22.0",
+        "prettier": "^2.2.1",
+        "swc-loader": "^0.1.12",
+        "webpack": "^5.25.1",
+        "webpack-cli": "^4.5.0",
+        "webpack-dev-server": "^3.11.2"
+    }
+}

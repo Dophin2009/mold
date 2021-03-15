@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "esModuleInterop": true,
+        "downlevelIteration": true,
+        "inlineSources": true,
+        "inlineSourceMap": true,
+        "jsx": "react",
+        "lib": ["DOM", "ES2020"],
+        "module": "ES2020",
+        "moduleResolution": "Node",
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "outDir": "dist",
+        "preserveConstEnums": true,
+        "resolveJsonModule": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "removeComments": true,
+        "target": "ES6",
+        "typeRoots": ["node_modules/@types"]
+    },
+    "include": ["src/*"],
+    "exclude": ["node_modules"]
+}
