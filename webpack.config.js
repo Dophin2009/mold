@@ -4,6 +4,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 const NODE_MODULES = path.resolve(__dirname, "node_modules");
 const SRC = path.resolve(__dirname, "src");
 const STATIC = path.resolve(__dirname, "static");
+const FAVICON = path.resolve(__dirname, "favicon");
 const DIST = path.resolve(__dirname, "dist");
 
 module.exports = (_, argv) => {
@@ -25,6 +26,7 @@ module.exports = (_, argv) => {
             new CopyPlugin({
                 patterns: [
                     { from: STATIC, to: DIST },
+                    { from: FAVICON, to: DIST },
                     {
                         from: path.resolve(NODE_MODULES, "@fontsource/fira-sans"),
                         to: path.resolve(DIST, "font/fira-sans"),
