@@ -6,7 +6,8 @@
     "license": "GPL-3.0",
     "main": "index.js",
     "scripts": {
-        "lint": "eslint .",
+        "typecheck": "tsc -p . --noEmit",
+        "lint": "npm run typecheck && eslint .",
         "build": "webpack --mode production",
         "build:dev": "webpack --mode development",
         "start": "webpack serve --mode development"
@@ -24,6 +25,7 @@
         "webpack-dev-server": "^3.11.2"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.15.2",
         "image-js": "^0.31.4"
     }
 }

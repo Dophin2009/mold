@@ -27,11 +27,20 @@ module.exports = (_, argv) => {
                     { from: STATIC, to: DIST },
                     {
                         from: path.resolve(NODE_MODULES, "@fontsource/fira-sans"),
-                        to: path.resolve(DIST, "font"),
+                        to: path.resolve(DIST, "font/fira-sans"),
+                    },
+                    {
+                        from: path.resolve(NODE_MODULES, "@fortawesome/fontawesome-free/css"),
+                        to: path.resolve(DIST, "font/fontawesome"),
+                    },
+                    {
+                        from: path.resolve(NODE_MODULES, "@fortawesome/fontawesome-free/webfonts"),
+                        to: path.resolve(DIST, "font/webfonts"),
                     },
                 ],
             }),
         ],
+        devtool: production ? null : "eval-source-map",
         devServer: { contentBase: DIST, compress: production, port: 8000 },
     };
 };

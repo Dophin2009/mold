@@ -37,6 +37,26 @@ export function editorDiscardButton(): HTMLButtonElement {
     return getElementById("editor-discard-button");
 }
 
+export function editorUndoButton(): HTMLButtonElement {
+    return getElementById("editor-controls-undo");
+}
+
+export function editorOptions(): HTMLDivElement {
+    return getElementById("editor-options-box");
+}
+
+export function editorGreyscaleButton(): HTMLButtonElement {
+    return getElementById("editor-greyscale-button");
+}
+
+export function editorBlurForm(): HTMLFormElement {
+    return getElementById("editor-blur-form");
+}
+
+export function editorBlurInput(): HTMLInputElement {
+    return getElementById("editor-blur-input");
+}
+
 export function getElementById<T extends HTMLElement>(id: string): T {
     return document.getElementById(id) as T;
 }

@@ -2,6 +2,7 @@ import { Image } from "image-js";
 
 import * as util from "./util";
 import * as storage from "./storage";
+import * as im from "./image";
 
 // We need to get the file data, read it, and store it.
 function handleFileUpload(event: Event): void {
@@ -40,6 +41,10 @@ function handleFileUpload(event: Event): void {
         const reader = event.target as FileReader;
         const url = reader.result as string;
 
+        // Clear the file list.
+        const form = util.uploadForm();
+        form.value = "";
+
         resetUpload();
         loadEditor(url, url);
     };
@@ -68,15 +73,29 @@ function unhideUpload() {
     uploadBox.style.display = "block";
 }
 
+function resetEditor() {
+    hideEditorOptions();
+}
+
+function hideEditor() {
+    const box = util.editorBox();
+    box.style.display = "none";
+}
+
 // Show the editor.
 function unhideEditor() {
     const box = util.editorBox();
     box.style.display = "block";
 }
 
-function hideEditor() {
-    const box = util.editorBox();
-    box.style.display = "none";
+function hideEditorOptions() {
+    const optionsBox = util.editorOptions();
+    optionsBox.style.display = "none";
+}
+
+function unhideEditorOptions() {
+    const optionsBox = util.editorOptions();
+    optionsBox.style.display = "block";
 }
 
 function loadEditor(originalURL: string, newURL: string) {
@@ -99,7 +118,10 @@ function loadImages(originalURL: string, newURL: string) {
     imageNew.src = newURL;
 
     // Load the image data into image-js for transformation.
-    const image = Image.load(newURL);
+    Image.load(newURL).then((image) => {
+        im.pushVersion(image);
+        unhideEditorOptions();
+    });
 }
 
 function discardImages() {
@@ -107,11 +129,14 @@ function discardImages() {
     storage.clearData();
 
     // Hide the editor and unhide the upload form.
+    resetEditor();
     hideEditor();
     unhideUpload();
 }
 
-function reloadImage(image: Image) {
+function reloadImage() {
+    const image = im.currentImage();
+
     const url = image.toDataURL();
     const imageNew = util.editorImageNew();
     imageNew.src = url;
@@ -147,6 +172,33 @@ function initEditor() {
     // Add event listeners to editor functions.
     const discardButton = util.editorDiscardButton();
     discardButton.addEventListener("click", (_event: MouseEvent) => discardImages());
+
+    const undoButton = util.editorUndoButton();
+    undoButton.addEventListener("click", (_event: MouseEvent) => {
+        im.undoLast();
+        reloadImage();
+    });
+
+    const greyscaleButton = util.editorGreyscaleButton();
+    greyscaleButton.addEventListener("click", (_event: MouseEvent) => {
+        im.setGreyscale();
+        reloadImage();
+    });
+
+    const blurForm = util.editorBlurForm();
+    blurForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const form = event.target as HTMLFormElement;
+        const formData = new FormData(form);
+
+        const radiusStr = formData.get("radius") as string;
+        const radius = parseInt(radiusStr);
+        if (radius > 0) {
+            im.applyBlur(radius);
+            reloadImage();
+        }
+    });
 }
 
 (function () {

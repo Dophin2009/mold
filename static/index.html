@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Mold</title>
         <link rel="stylesheet" href="/index.css" />
-        <link rel="stylesheet" href="/font/index.css" />
+        <link rel="stylesheet" href="/font/fira-sans/index.css" />
+        <link rel="stylesheet" href="/font/fontawesome/all.css" />
     </head>
     <body>
         <div id="wrapper" class="wrapper">
@@ -26,6 +27,29 @@
                 <div class="editor-image-box">
                     <img id="editor-image-original" class="editor-image" src="" />
                     <img id="editor-image-new" class="editor-image" src="" />
+                </div>
+
+                <div id="editor-controls-box" class="editor-controls-box">
+                    <i
+                        id="editor-controls-undo"
+                        class="fas fa-undo-alt clickable editor-controls-undo"
+                    ></i>
+                </div>
+
+                <div id="editor-options-box" class="editor-options-box">
+                    <button id="editor-greyscale-button" class="button">Greyscale</button>
+
+                    <form id="editor-blur-form">
+                        <input type="submit" value="Apply Blur" class="button" />
+                        <input
+                            name="radius"
+                            type="number"
+                            value="0"
+                            min="0"
+                            id="editor-blur-input"
+                            class="editor-blur-input"
+                        />
+                    </form>
                 </div>
             </div>
         </div>
