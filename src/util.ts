@@ -1,38 +1,42 @@
-export function getUploadBox(): HTMLDivElement {
+export function uploadBox(): HTMLDivElement {
     return getElementById("upload-box");
 }
 
 // Get a reference to the file upload <input> element.
 // Ignore the null check.
-export function getUploadForm(): HTMLInputElement {
+export function uploadForm(): HTMLInputElement {
     return getElementById("upload-form");
 }
 
-export function getUploadFormBox(): HTMLDivElement {
+export function uploadFormBox(): HTMLDivElement {
     return getElementById("upload-form-box");
 }
 
 // Get a reference to the file upload progress bar <progress> element.
-export function getUploadFormProgress(): HTMLProgressElement {
+export function uploadFormProgress(): HTMLProgressElement {
     return getElementById("upload-form-progress");
 }
 
-export function getUploadFormProgressBox(): HTMLProgressElement {
+export function uploadFormProgressBox(): HTMLProgressElement {
     return getElementById("upload-form-progress-box");
 }
 
-export function getEditorBox(): HTMLDivElement {
+export function editorBox(): HTMLDivElement {
     return getElementById("editor-box");
 }
 
-export function getEditorImageOriginal(): HTMLImageElement {
+export function editorImageOriginal(): HTMLImageElement {
     return getElementById("editor-image-original");
 }
 
-export function getEditorImageNew(): HTMLImageElement {
+export function editorImageNew(): HTMLImageElement {
     return getElementById("editor-image-new");
 }
 
-function getElementById<T extends HTMLElement>(id: string): T {
+export function editorDiscardButton(): HTMLButtonElement {
+    return getElementById("editor-discard-button");
+}
+
+export function getElementById<T extends HTMLElement>(id: string): T {
     return document.getElementById(id) as T;
 }

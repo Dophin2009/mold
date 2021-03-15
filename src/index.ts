@@ -18,8 +18,8 @@ function handleFileUpload(event: Event): void {
     const reader = new FileReader();
 
     // Let's also display a primitive progress bar for the reading.
-    const formBox = util.getUploadFormBox();
-    const progressBarBox = util.getUploadFormProgressBox();
+    const formBox = util.uploadFormBox();
+    const progressBarBox = util.uploadFormProgressBox();
     reader.onloadstart = (_event: ProgressEvent<FileReader>) => {
         // Unhide the progress bar.
         progressBarBox.style.display = "block";
@@ -27,7 +27,7 @@ function handleFileUpload(event: Event): void {
         formBox.style.display = "none";
     };
 
-    const progressBar = util.getUploadFormProgress();
+    const progressBar = util.uploadFormProgress();
     reader.onprogress = (event: ProgressEvent<FileReader>) => {
         const value = event.loaded;
         const max = event.total;
@@ -40,41 +40,80 @@ function handleFileUpload(event: Event): void {
         const reader = event.target as FileReader;
         const url = reader.result as string;
 
-        initEditor(url, url);
+        resetUpload();
+        loadEditor(url, url);
     };
 
     reader.readAsDataURL(file);
 }
 
+function resetUpload() {
+    const formBox = util.uploadFormBox();
+    formBox.style.display = "block";
+
+    const progressBarBox = util.uploadFormProgressBox();
+    progressBarBox.style.display = "none";
+
+    const progressBar = util.uploadFormProgress();
+    progressBar.value = 0;
+}
+
 function hideUpload() {
-    const uploadBox = util.getUploadBox();
+    const uploadBox = util.uploadBox();
     uploadBox.style.display = "none";
 }
 
-function initEditor(originalURL: string, newURL: string) {
+function unhideUpload() {
+    const uploadBox = util.uploadBox();
+    uploadBox.style.display = "block";
+}
+
+// Show the editor.
+function unhideEditor() {
+    const box = util.editorBox();
+    box.style.display = "block";
+}
+
+function hideEditor() {
+    const box = util.editorBox();
+    box.style.display = "none";
+}
+
+function loadEditor(originalURL: string, newURL: string) {
     // Hide the upload form.
     hideUpload();
+    // Show the editor.
+    unhideEditor();
+    // Load the images onto the screen.
+    loadImages(originalURL, newURL);
+}
 
-    // Save the image URLs.
+function loadImages(originalURL: string, newURL: string) {
+    // Save the image URLs into the storage.
     storage.saveData(originalURL, newURL);
 
-    // Show the editor.
-    const box = util.getEditorBox();
-    box.style.display = "block";
-
     // Set the image element sources.
-    const imageOriginal = util.getEditorImageOriginal();
-    const imageNew = util.getEditorImageNew();
+    const imageOriginal = util.editorImageOriginal();
+    const imageNew = util.editorImageNew();
     imageOriginal.src = originalURL;
     imageNew.src = newURL;
 
-    // Load it into image-js for transformation.
+    // Load the image data into image-js for transformation.
     const image = Image.load(newURL);
+}
+
+function discardImages() {
+    // Clear the image data from the storage.
+    storage.clearData();
+
+    // Hide the editor and unhide the upload form.
+    hideEditor();
+    unhideUpload();
 }
 
 function reloadImage(image: Image) {
     const url = image.toDataURL();
-    const imageNew = util.getEditorImageNew();
+    const imageNew = util.editorImageNew();
     imageNew.src = url;
 
     // Save the image URLs.
@@ -83,21 +122,31 @@ function reloadImage(image: Image) {
 
 // Initialization function.
 function init() {
+    initUpload();
+    initEditor();
+
     // First check to see if the local storage has images saved.
     // If there is, then just load the editor right away.
     // If not, we have to show the upload button.
     const savedData = storage.loadData();
     if (savedData) {
         const [originalURL, newURL] = savedData;
-        initEditor(originalURL, newURL);
-        return;
+        loadEditor(originalURL, newURL);
     }
+}
 
+function initUpload() {
     // We need to get the file upload <input> element and add a listener for
     // "change" events.
     // When the user uploads a file, we'll set the global `image` variable.
-    const uploadForm = util.getUploadForm();
+    const uploadForm = util.uploadForm();
     uploadForm.addEventListener("change", (event) => handleFileUpload(event));
+}
+
+function initEditor() {
+    // Add event listeners to editor functions.
+    const discardButton = util.editorDiscardButton();
+    discardButton.addEventListener("click", (_event: MouseEvent) => discardImages());
 }
 
 (function () {

@@ -16,9 +16,13 @@ export function loadData(): [string, string] | null {
     const originalURL = storage.getItem(ORIGINAL_KEY);
     const newURL = storage.getItem(NEW_KEY);
     if (!originalURL || !newURL) {
-        storage.removeItem(ORIGINAL_KEY);
-        storage.removeItem(NEW_KEY);
+        clearData();
         return null;
     }
     return [originalURL, newURL];
+}
+
+export function clearData() {
+    storage.removeItem(ORIGINAL_KEY);
+    storage.removeItem(NEW_KEY);
 }
