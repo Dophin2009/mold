@@ -33,3 +33,9 @@ export function applyBlur(radius: number): void {
     const newImage = image.blurFilter({ radius: radius });
     pushVersion(newImage);
 }
+
+export function rotate(degrees: number): void {
+    const image = currentImage();
+    const newImage = image.rotate(degrees);
+    pushVersion(newImage);
+}

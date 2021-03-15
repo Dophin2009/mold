@@ -61,6 +61,14 @@ export function editorBlurInput(): HTMLInputElement {
     return getElementById("editor-blur-input");
 }
 
+export function editorRotateForm(): HTMLFormElement {
+    return getElementById("editor-rotate-form");
+}
+
+export function editorRotateInput(): HTMLInputElement {
+    return getElementById("editor-rotate-input");
+}
+
 export function getElementById<T extends HTMLElement>(id: string): T {
     return document.getElementById(id) as T;
 }

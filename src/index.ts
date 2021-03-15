@@ -207,6 +207,21 @@ function initEditor() {
             reloadImage();
         }
     });
+
+    const rotateForm = util.editorRotateForm();
+    rotateForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const form = event.target as HTMLFormElement;
+        const formData = new FormData(form);
+
+        const degreesStr = formData.get("degrees") as string;
+        const degrees = parseInt(degreesStr);
+        if (degrees > 0) {
+            im.rotate(degrees);
+            reloadImage();
+        }
+    });
 }
 
 (function () {
