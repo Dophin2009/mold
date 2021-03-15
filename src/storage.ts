@@ -3,7 +3,7 @@ const NEW_KEY = "new";
 
 const storage = window.localStorage;
 
-export function save(key: string, data: object): void {
+export function save(key: string, data: Record<string, unknown>): void {
     storage.setItem(key, JSON.stringify(data));
 }
 
