@@ -5,7 +5,7 @@ transformations on it, and download the result.
 
 ## Getting Started
 
-To start the development server on port 80:
+To start the development server on port 8000:
 
 ``` shell
 git clone https://github.com/Dophin2009/mold
@@ -32,5 +32,5 @@ The `Dockerfile` produces a production build and serves it with NginX:
 
 ``` shell
 docker build --tag=mold .
-docker run -it -p 80:80/tcp mold
+docker run -it -p 8000:80/tcp mold
 ```
