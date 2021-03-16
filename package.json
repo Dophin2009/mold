@@ -7,7 +7,8 @@
     "main": "index.js",
     "scripts": {
         "typecheck": "tsc -p . --noEmit",
-        "lint": "npm run typecheck && eslint .",
+        "eslint": "eslint .",
+        "lint": "npm run typecheck && npm run eslint",
         "build": "webpack --mode production",
         "build:dev": "webpack --mode development",
         "start": "webpack serve --mode development",
@@ -17,6 +18,7 @@
         "@fontsource/fira-sans": "^4.2.2",
         "@swc/core": "^1.2.50",
         "@typescript-eslint/eslint-plugin": "^4.17.0",
+        "@typescript-eslint/parser": "^4.18.0",
         "copy-webpack-plugin": "^8.0.0",
         "eslint": "^7.22.0",
         "prettier": "^2.2.1",
