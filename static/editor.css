@@ -1,3 +1,11 @@
+/*
+ * The editor-box class is applied to the div that encapsulates all the editor
+ * functionality.
+ *
+ * Notice how `display` is set to `none`. This means it's hidden by default.
+ * In the beginning, we only want to show the upload form, and then
+ * programmatically unhide the editor after the user uploads an image.
+ * */
 .editor-box {
     display: none;
 

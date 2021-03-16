@@ -11,6 +11,10 @@
     z-index: -1;
 }
 
+/*
+ * This class is applied to the div that encapsulates the progress bar.
+ * It's hidden by default.
+ * */
 .upload-form-progress-box {
     display: none;
 }

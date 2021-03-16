@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Mold</title>
 
+        <!-- We specify the icons the browser should show for this page. -->
         <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
@@ -13,6 +14,7 @@
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
 
+        <!-- We specify our CSS stylesheets using <link> tags. -->
         <link rel="stylesheet" href="index.css" />
         <link rel="stylesheet" href="font/fira-sans/index.css" />
         <link rel="stylesheet" href="font/fontawesome/all.css" />
@@ -22,21 +24,34 @@
             <div class="title">
                 <h1>Mold</h1>
             </div>
+
+            <!-- This <div> contains the upload form part of this page. By
+                default, it's shown. -->
             <div id="upload-box" class="upload-box">
                 <div id="upload-form-box" class="upload-form-box">
+                    <!-- In here, we want to place an <input> element that the
+                        user can click to choose a file to upload. -->
                     <input type="file" accept="image/*" id="upload-form" class="upload-form" />
                     <label for="upload-form" class="button">Upload an image!</label>
                 </div>
                 <div id="upload-form-progress-box" class="upload-form-progress-box">
+                    <!-- Let's put a progress bar here. It'll be hidden by
+                        default (as specified in the CSS). -->
                     <progress id="upload-form-progress" max="100" value="0"></progress>
                 </div>
             </div>
+
+            <!-- This <div> has all the editor functionality. -->
             <div id="editor-box" class="editor-box">
                 <div class="editor-image-box">
+                    <!-- Let's put the two images side by side here (original
+                        on the left, new on the right). -->
                     <img id="editor-image-original" class="editor-image" src="" />
                     <img id="editor-image-new" class="editor-image" src="" />
                 </div>
 
+                <!-- Here, we put some icons the user can click to undo, reset,
+                    download, etc. -->
                 <div id="editor-controls-box" class="editor-controls-box">
                     <i id="editor-discard-button" class="fas fa-trash-alt icon-button"></i>
                     <i id="editor-controls-undo" class="fas fa-backspace icon-button"></i>
@@ -61,6 +76,8 @@
                         />
                     </form>
 
+                    <!-- We want to create another <form> here that will allow
+                        the user to apply a rotate effect on the image. -->
                     <form id="editor-rotate-form">
                         <input type="submit" value="Rotate &#176;" class="button" />
                         <input
@@ -76,6 +93,9 @@
                 </div>
             </div>
         </div>
+
+        <!-- We want to load our script last, because we look for the above
+            elements inside it. -->
         <script src="index.js"></script>
     </body>
 </html>
