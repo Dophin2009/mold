@@ -1,0 +1,55 @@
+/*
+ * We import the other two CSS files we need inside this one, so in the HTML we
+ * only need to load this one.
+ * Not really sure how good a practice this is.
+ * */
+@import "upload.css";
+@import "editor.css";
+
+.wrapper {
+    /* We want to use the Fira Sans font everywhere. */
+    font-family: "Fira Sans";
+
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+input[type="number"] {
+    border: none;
+    border-radius: 2px;
+    background-color: #eee;
+    padding: 7px;
+
+    font-size: 0.9rem;
+}
+
+/*
+ * This button class we attach to a lot of different buttons on the page. It
+ * gives us a solid dark grey background with rounded corners for a button.
+ * */
+.button {
+    background-color: #444;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+}
+
+button.button, input.button {
+    border: 0;
+    font-family: inherit;
+    box-shadow: none;
+}
+
+.icon-button {
+    color: #888;
+}
+.icon-button:hover {
+    color: #333;
+    cursor: pointer;
+}

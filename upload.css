@@ -1,0 +1,20 @@
+.upload-box {
+    text-align: center;
+}
+
+.upload-form {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+/*
+ * This class is applied to the div that encapsulates the progress bar.
+ * It's hidden by default.
+ * */
+.upload-form-progress-box {
+    display: none;
+}

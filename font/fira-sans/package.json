@@ -1,0 +1,61 @@
+{
+  "_args": [
+    [
+      "@fontsource/fira-sans@4.2.2",
+      "/home/runner/work/mold/mold"
+    ]
+  ],
+  "_from": "@fontsource/fira-sans@4.2.2",
+  "_id": "@fontsource/fira-sans@4.2.2",
+  "_inBundle": false,
+  "_integrity": "sha512-YxQdnmJkcVybsOhEvJle9zcoFFweCP1ck1WDOk4qBBq9mESr/+8tNkHZCKpiD7r5+n9Vn0CmkH5xjsBCs5NctA==",
+  "_location": "/@fontsource/fira-sans",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@fontsource/fira-sans@4.2.2",
+    "name": "@fontsource/fira-sans",
+    "escapedName": "@fontsource%2ffira-sans",
+    "scope": "@fontsource",
+    "rawSpec": "4.2.2",
+    "saveSpec": null,
+    "fetchSpec": "4.2.2"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@fontsource/fira-sans/-/fira-sans-4.2.2.tgz",
+  "_spec": "4.2.2",
+  "_where": "/home/runner/work/mold/mold",
+  "author": {
+    "name": "Lotus",
+    "email": "declininglotus@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/fontsource/fontsource/issues"
+  },
+  "description": "Self-host the Fira Sans font in a neatly bundled NPM package.",
+  "gitHead": "6f1ab8fd3e6c93d96a0fcd131f12409d142d9a9e",
+  "homepage": "https://github.com/fontsource/fontsource/tree/master/packages/fira-sans#readme",
+  "keywords": [
+    "fontsource",
+    "font",
+    "font family",
+    "google fonts",
+    "Fira Sans",
+    "fira-sans"
+  ],
+  "license": "MIT",
+  "main": "index.css",
+  "name": "@fontsource/fira-sans",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fontsource/fontsource.git",
+    "directory": "packages/fira-sans"
+  },
+  "version": "4.2.2"
+}
