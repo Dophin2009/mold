@@ -12,21 +12,24 @@ module.exports = (_, argv) => {
 
     return {
         entry: path.resolve(SRC, "index.ts"),
-        output: {
-            path: DIST,
-            filename: "index.js",
-        },
-        resolve: {
-            extensions: [".ts", ".tsx", ".js", ".jsx", ".css", ".sass", ".scss", ".wasm"],
-        },
+        output: { path: DIST, filename: "index.js" },
+        resolve: { extensions: [".ts", ".tsx", ".js", ".jsx", ".css", ".sass", ".scss", ".wasm"] },
         module: {
-            rules: [{ test: /\.tsx?$/, use: ["swc-loader"] }],
+            rules: [
+                {
+                    test: /\.tsx?$/,
+                    use: ["swc-loader"],
+                },
+            ],
         },
         plugins: [
             new CopyPlugin({
                 patterns: [
                     { from: STATIC, to: DIST },
-                    { from: FAVICON, to: DIST },
+                    {
+                        from: FAVICON,
+                        to: DIST,
+                    },
                     {
                         from: path.resolve(NODE_MODULES, "@fontsource/fira-sans"),
                         to: path.resolve(DIST, "font/fira-sans"),
