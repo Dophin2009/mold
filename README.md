@@ -8,7 +8,7 @@ transformations on it, and download the result.
 To start the development server on port 8000:
 
 ``` shell
-git clone https://github.com/Dophin2009/mold
+git clone https://github.com/mirryi/mold
 cd mold
 npm install
 npm run start
